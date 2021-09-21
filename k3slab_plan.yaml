@@ -1,0 +1,39 @@
+k8sMachine:
+  type: profile
+  base: medium
+
+controller:
+  profile: k8sMachine
+  nets:
+    - name: br0
+      ip: 192.168.62.21
+      gateway: 192.168.62.1
+      mask: 255.255.255.0
+      dns: 192.168.62.1
+
+node1:
+  profile: k8sMachine
+  nets:
+    - name: br0
+      ip: 192.168.62.31
+      gateway: 192.168.62.1
+      mask: 255.255.255.0
+      dns: 192.168.62.1
+
+node2:
+  profile: k8sMachine
+  nets:
+    - name: br0
+      ip: 192.168.62.32
+      gateway: 192.168.62.1
+      mask: 255.255.255.0
+      dns: 192.168.62.1
+
+node3:
+  profile: k8sMachine
+  nets:
+    - name: br0
+      ip: 192.168.62.33
+      gateway: 192.168.62.1
+      mask: 255.255.255.0
+      dns: 192.168.62.1
