@@ -1,6 +1,11 @@
 - hosts: all
   roles:
     - common
-  tasks:
-    - name: Ping all hosts
-      ping:
+
+- hosts: controller
+  roles:
+    - k3s-controller
+
+- hosts: nodes
+  roles:
+    - k3s-node
