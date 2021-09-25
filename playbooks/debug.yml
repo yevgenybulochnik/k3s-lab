@@ -1,0 +1,14 @@
+- hosts: all
+  tasks:
+    - name: Ping all hosts
+      ping:
+
+- hosts: controller
+  tasks:
+    - name: Ping controller node
+      ping:
+
+- hosts: nodes
+  tasks:
+    - name: Ping nodes
+      ping:
