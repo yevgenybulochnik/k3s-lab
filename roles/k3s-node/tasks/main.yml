@@ -1,0 +1,5 @@
+---
+- name: k3s install for worker nodes
+  shell: "curl -sfL https://get.k3s.io| K3S_URL=https://{{ controller_ip }}:6443 K3S_TOKEN={{ token }} sh -"
+  args:
+    creates: /var/lib/rancher/k3s
