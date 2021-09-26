@@ -9,3 +9,6 @@
 - hosts: nodes
   roles:
     - k3s-node
+  vars:
+    controller_ip: "{{ hostvars[groups['controller'][0]]['ansible_default_ipv4']['address'] }}"
+    token: "{{ hostvars[groups['controller'][0]]['token'] }}"
