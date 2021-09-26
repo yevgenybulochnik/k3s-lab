@@ -1,0 +1,18 @@
+---
+- name: k3s install for controller node
+  shell: 'curl -sfL https://get.k3s.io | sh -'
+  args:
+    creates: /var/lib/rancher/k3s/server/node-token
+
+- name: Wait for node-token
+  wait_for:
+    path: /var/lib/rancher/k3s/server/node-token
+
+- name: Read node-token from controller
+  slurp:
+    src: /var/lib/rancher/k3s/server/node-token
+  register: node_token
+
+- name: Store Controller node-token
+  set_fact:
+    token: "{{ node_token.content | b64decode | regex_replace('\n', '') }}"
